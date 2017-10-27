@@ -14,9 +14,7 @@ class DoRun(threading.Thread):
     def run(self):
         while not self._queue.empty():
             ips =self._queue.get()
-            ips=ips
-            result=[]
- 
+            ips=ips 
             try:
                 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
                 s.connect(ips)
@@ -24,12 +22,11 @@ class DoRun(threading.Thread):
                 #back=s.recv(50)
                 #if back:
                 s.close
-                print "%s:%d---------Open"%(ips[0],ips[1])
-                result.append(b)
+                print "%s:%d---------Open\n"%(ips[0],ips[1])
+
 
             except:
                 print "%s:%s---------Fail\n"%(ips)
-                pass 
     
               
 #-------------help file-------------------
